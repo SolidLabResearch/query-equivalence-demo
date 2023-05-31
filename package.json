@@ -1,22 +1,30 @@
 {
-    "name": "insert-name-of-project-here",
+    "name": "query-equivalence-demo",
     "version": "1.0.0",
-    "description": "insert-description-of-project-here",
+    "description": "Demonstrating the Query Equivalence feature for the Solid Stream Aggregator",
     "main": "dist/index.js",
     "scripts": {
         "build": "npx tsc",
         "start": "node dist/index.js",
         "test": "jest --coverage",
-        "test:watch": "jest --watch"
+        "test:watch": "jest --watch",
+        "start-solid-server": "cd scripts && rm -rf data/.internal/ && npx community-solid-server --config ./pod/config/unsafe.json -f ./data/ --seededPodConfigJson ./pod/multiSolidPod.json"
     },
     "keywords": [],
     "author": "Kushagra Singh Bisen",
     "license": "ISC",
     "devDependencies": {
+        "@comunica/query-sparql-link-traversal": "^0.1.1",
+        "@solid/community-server": "^5.1.0",
+        "@treecg/versionawareldesinldp": "^0.2.0",
         "@types/jest": "^29.2.4",
         "jest": "^29.3.1",
+        "rsp-js": "^1.0.1",
+        "rspql-query-equivalence": "^1.0.4",
         "supertest": "^6.3.3",
         "ts-jest": "^29.0.3",
-        "typescript": "^4.9.4"
+        "tslog": "^4.8.2",
+        "typescript": "^4.9.4",
+        "websocket": "^1.0.34"
     }
 }

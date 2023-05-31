@@ -2,7 +2,7 @@
 
 This repository is to demonstrate the equivalence relation between two RSPQL queries registered in the query registry of the [solid stream aggregator](https://github.com/argahsuknesib/solid-stream-aggregator) for the [SolidLabResearch Challenge 106](https://github.com/SolidLabResearch/Challenges/issues/106)
 
-## Usage
+
 
 
 ## License
