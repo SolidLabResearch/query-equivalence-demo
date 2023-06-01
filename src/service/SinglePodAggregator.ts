@@ -38,7 +38,6 @@ export class SinglePodAggregator {
             });
         }
         else {
-            console.log(`The stream is undefined`);
         }
     }
 

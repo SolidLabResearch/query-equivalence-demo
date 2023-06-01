@@ -3,7 +3,6 @@ import { Logger, ILogObj } from "tslog";
 import { AggregatorInstantiator } from "./AggregatorInstantiator";
 import { is_equivalent } from "rspql-query-equivalence";
 let sparqlParser = require('sparqljs').Parser;
-let SPARQLParser = new sparqlParser();
 
 export class QueryRegistry {
     registered_queries: Map<number, string>;
@@ -46,7 +45,6 @@ export class QueryRegistry {
             new AggregatorInstantiator(rspql_query, latest_minutes_to_retrieve, solid_server_url);
         }
         else {
-            this.logger.debug(`The query you have registered is already executing.`);
         }
 
     }
@@ -58,12 +56,14 @@ export class QueryRegistry {
             /*
             The query you have registered is already executing.
             */
+            this.logger.debug(`The query you have registered is already executing.`);
             return false;
         }
         else {
             /*
             The query you have registered is not already executing.
             */
+            this.logger.debug(`The query you have registered is a unique query.`);
             this.add_to_executing_queries(rspql_query);
             return true;
         }
