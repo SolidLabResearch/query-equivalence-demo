@@ -4,12 +4,12 @@ const program = require('commander');
 
 program
     .version('0.0.1')
-    .description('Aggregating LDES streams from a Solid Pod.')
-    .name('solid-stream-aggregator')
+    .description('Query Equi')
+    .name('query-equivalence-demo')
 
 program
-    .command('aggregation')
-    .description('Starting the aggregation service.')
+    .command('demo')
+    .description('Starting the Query Equivalence Demo')
     .option(
         '-p, --port <port>',
         'The port of the REST server',
@@ -27,6 +27,7 @@ program
     )
     .action((options: any) => {
         new HTTPServer(options.port, options.minutes, options.SolidServer);
+        console.log("The aggregation service is running.");
     });
 
 

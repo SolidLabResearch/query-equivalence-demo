@@ -8,7 +8,11 @@
         "start": "npx tsc && node dist/index.js",
         "test": "jest --coverage",
         "test:watch": "jest --watch",
-        "start-solid-server": "cd scripts && rm -rf data/.internal/ && npx community-solid-server --config ./pod/config/unsafe.json -f ./data/ --seededPodConfigJson ./pod/multiSolidPod.json"
+        "start-solid-server": "cd scripts && rm -rf data/.internal/ && npx community-solid-server --config ./pod/config/unsafe.json -f ./data/ --seededPodConfigJson ./pod/multiSolidPod.json",
+        "query-one": "curl http://localhost:8080/query_one",
+        "query-two": "curl http://localhost:8080/query_two",
+        "query-three": "curl http://localhost:8080/query_three",
+        "query-four": "curl http://localhost:8080/query_four"
     },
     "keywords": [],
     "author": "Kushagra Singh Bisen",

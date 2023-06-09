@@ -68,13 +68,13 @@ To confirm this,
 2. Do a request to first query's endpoint with,
 
    ```bash
-   curl http://localhost:8080/query_one
+   npm run query-one
    ```
 
 3. and then on second query's endpoint with,
 
    ```bash
-   curl http://localhost:8080/query_two
+   npm run query-two
    ```
 
 Now to demonstrate the equivalence of the queries, we take two queries which are isomorphic but have different variable names.
@@ -119,15 +119,17 @@ To confirm this,
 4. Do a request to the third query's endpoint with,
 
    ```bash
-   curl http://localhost:8080/query_three
+   npm run query-three
    ```
 5. and then on fourth query's endpoint with,
 
    ```bash
-   curl http://localhost:8080/query_four
+   npm run query-four
    ```
+
 On registering the fourth query, the aggregator will give a console on the terminal, that the registered query is already running.
 
+6. Try re-registering the queries with any of commands above, and confirm that the queries are the same and registered already.
 
 ## License
 

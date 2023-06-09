@@ -1,8 +1,5 @@
-import { RSPQLParser } from "../utils/RSPQLParser";
 import { Logger, ILogObj } from "tslog";
-import { AggregatorInstantiator } from "./AggregatorInstantiator";
 import { is_equivalent } from "rspql-query-equivalence";
-let sparqlParser = require('sparqljs').Parser;
 
 export class QueryRegistry {
     registered_queries: Map<number, string>;
@@ -29,7 +26,6 @@ export class QueryRegistry {
         this.executed_queries = [];
         this.future_queries = [];
         this.query_count = 0;
-        this.parser = new RSPQLParser();
         this.logger = new Logger();
     }
     /**
@@ -42,9 +38,10 @@ export class QueryRegistry {
 
     register_query(rspql_query: string, latest_minutes_to_retrieve: number, solid_server_url: string, query_registry: QueryRegistry) {
         if (query_registry.add_query_in_registry(rspql_query)) {
-            new AggregatorInstantiator(rspql_query, latest_minutes_to_retrieve, solid_server_url);
+            console.log(`The query you have registered is not already executing.`);
         }
         else {
+            this.logger.debug(`The query you have registered is already executing.`);
         }
 
     }
@@ -56,14 +53,12 @@ export class QueryRegistry {
             /*
             The query you have registered is already executing.
             */
-            this.logger.debug(`The query you have registered is already executing.`);
             return false;
         }
         else {
             /*
             The query you have registered is not already executing.
             */
-            this.logger.debug(`The query you have registered is a unique query.`);
             this.add_to_executing_queries(rspql_query);
             return true;
         }
@@ -87,17 +82,21 @@ export class QueryRegistry {
      * @memberof QueryRegistry
      */
     checkUniqueQuery(query: string) {
-        let registered_queries = this.get_registered_queries();
+        let registered_queries = this.get_executing_queries();
         let queryArray: any[] = [];
+        let is_similar: boolean = false;
         registered_queries.forEach((value, key) => {
             queryArray.push(value);
         })
         if (queryArray.length > 1) {
-            for (let i = 0; i < queryArray.length; i++) {
-                return is_equivalent(query, queryArray[i]);
+            for (let counter = 0; counter < queryArray.length; counter++) {
+                if (is_equivalent(query, queryArray[counter])) {
+                    is_similar = true;
+                }
             }
+
         }
-        return false;
+        return is_similar;
     }
 
 
