@@ -12,7 +12,9 @@
         "query-one": "curl http://localhost:8080/query_one",
         "query-two": "curl http://localhost:8080/query_two",
         "query-three": "curl http://localhost:8080/query_three",
-        "query-four": "curl http://localhost:8080/query_four"
+        "query-four": "curl http://localhost:8080/query_four",
+        "query-five": "curl http://localhost:8080/query_five",
+        "query-six": "curl http://localhost:8080/query_six"
     },
     "keywords": [],
     "author": "Kushagra Singh Bisen",

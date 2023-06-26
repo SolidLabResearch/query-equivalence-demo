@@ -59,6 +59,32 @@ export class EndpointQueries {
                         ?subject saref:relatesToProperty dahccsensors:wearable.heartRate .
                         ?subject saref:hasValue ?object . }
         }`);
+
+        this.add_query("query_five", ` 
+        PREFIX saref: <https://saref.etsi.org/core/> 
+        PREFIX dahccsensors: <https://dahcc.idlab.ugent.be/Homelab/SensorsAndActuators/>
+        PREFIX : <https://rsp.js/>
+        REGISTER RStream <output> AS
+        SELECT (AVG(?object) AS ?averageHR1)
+        FROM NAMED WINDOW :w1 ON STREAM <http://localhost:3000/dataset_participant1/data/> [RANGE 10 STEP 2]
+        WHERE{
+            WINDOW :w1 {
+                        ?subject saref:relatesToProperty dahccsensors:wearable.Accelerometer .
+                        ?subject saref:hasValue ?object . }
+        }`);
+
+        this.add_query("query_six", `  
+        PREFIX saref: <https://saref.etsi.org/core/> 
+        PREFIX dahccsensors: <https://dahcc.idlab.ugent.be/Homelab/SensorsAndActuators/>
+        PREFIX : <https://rsp.js/>
+        REGISTER RStream <output> AS
+        SELECT (AVG(?object) AS ?averageHR1)
+        FROM NAMED WINDOW :w1 ON STREAM <http://localhost:3000/dataset_participant2/data/> [RANGE 10 STEP 2]
+        WHERE{
+            WINDOW :w1 {
+                        ?subject saref:relatesToProperty dahccsensors:wearable.Accelerometer .
+                        ?subject saref:hasValue ?object . }
+        }`);
     }
 }
 

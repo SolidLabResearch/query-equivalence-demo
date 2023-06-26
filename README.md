@@ -26,7 +26,7 @@ The queries in the aggregator are registered in [RSPQL](https://www.igi-global.c
 1. Start the aggregator's server with,
 
 ```ts
-npm run start aggregation
+npm run start demo
 ```
 
 This will start the aggregator's server on port 8080.
@@ -130,6 +130,57 @@ To confirm this,
 On registering the fourth query, the aggregator will give a console on the terminal, that the registered query is already running.
 
 6. Try re-registering the queries with any of commands above, and confirm that the queries are the same and registered already.
+
+Let's consider if the basic graph patterns of the queries are isomorphic but the data stream sources are different. In this case, the aggregator will register both the queries. To demonstrate this, we take the queries with different sources,
+
+```ts
+let query_five = ` 
+        PREFIX saref: <https://saref.etsi.org/core/> 
+        PREFIX dahccsensors: <https://dahcc.idlab.ugent.be/Homelab/SensorsAndActuators/>
+        PREFIX : <https://rsp.js/>
+        REGISTER RStream <output> AS
+        SELECT (AVG(?object) AS ?averageHR1)
+        FROM NAMED WINDOW :w1 ON STREAM <http://localhost:3000/dataset_participant1/data/> [RANGE 10 STEP 2]
+        WHERE{
+            WINDOW :w1 {
+                        ?subject saref:relatesToProperty dahccsensors:wearable.Accelerometer .
+                        ?subject saref:hasValue ?object . }
+        }`;
+```
+
+and,
+
+```ts
+` 
+        PREFIX saref: <https://saref.etsi.org/core/> 
+        PREFIX dahccsensors: <https://dahcc.idlab.ugent.be/Homelab/SensorsAndActuators/>
+        PREFIX : <https://rsp.js/>
+        REGISTER RStream <output> AS
+        SELECT (AVG(?object) AS ?averageHR1)
+        FROM NAMED WINDOW :w1 ON STREAM <http://localhost:3000/dataset_participant2/data/> [RANGE 10 STEP 2]
+        WHERE{
+            WINDOW :w1 {
+                        ?subject saref:relatesToProperty dahccsensors:wearable.Accelerometer .
+                        ?subject saref:hasValue ?object . }
+        }
+```
+
+To confirm this,
+
+7. Do a request to the fifth query's endpoint with,
+
+   ```bash
+   npm run query-five
+   ```
+
+8. and then on sixth query's endpoint with,
+
+   ```bash
+        npm run query-six
+   ```
+
+As you can see, the aggregator will register both the queries. 
+
 
 ## License
 

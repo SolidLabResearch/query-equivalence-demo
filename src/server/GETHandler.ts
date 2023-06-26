@@ -21,6 +21,11 @@ export class GETHandler {
             case '/query_four':
                 query_registry.register_query(endpoint_queries.get_query('query_four'), minutes, solid_server_url, query_registry);
                 break;
+            case '/query_five':
+                query_registry.register_query(endpoint_queries.get_query('query_five'), minutes, solid_server_url, query_registry);
+                break;
+            case '/query_six':
+                query_registry.register_query(endpoint_queries.get_query('query_six'), minutes, solid_server_url, query_registry);    
             default:
                 break;
         }
