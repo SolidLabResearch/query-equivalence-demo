@@ -17,7 +17,7 @@ To spin up the Solid pods, run the following command from the root of the reposi
 
 `npm run start-solid-server`
 
-In this demonstration, we will not aggregate the data, rather focus on the equivalence of a newly registered query with an existing registered query. In case you are interested in demonstration of the aggregation of the data you can checkout [Solid Stream Aggregator Demo](https://github.com/SolidLabResearch/ssa-demo).
+In this demonstration, we will not aggregate the data, but rather focus on the equivalence of a newly registered query with an existing registered query. In case you are interested in the demonstration of the aggregation of the data you can check out [Solid Stream Aggregator Demo](https://github.com/SolidLabResearch/ssa-demo).
 
 The queries in the aggregator are registered in [RSPQL](https://www.igi-global.com/article/rsp-ql-semantics/129761) syntax.
 
@@ -61,7 +61,7 @@ let query_two = `
         }`;
 ```
 
-These queries are on the same data stream source, but the basic graph patterns are not isomorphic. Therefore, the aggregator will register both the queries.
+These queries are on the same data stream source, but the basic graph patterns are not isomorphic. Therefore, the aggregator will register both queries.
 
 To confirm this,
 
@@ -71,13 +71,13 @@ To confirm this,
    npm run query-one
    ```
 
-3. and then on second query's endpoint with,
+3. and then on the second query's endpoint with,
 
    ```bash
    npm run query-two
    ```
 
-Now to demonstrate the equivalence of the queries, we take two queries which are isomorphic but have different variable names.
+Now to demonstrate the equivalence of the queries, we take two queries that are isomorphic but have different variable names.
 
 So for the queries,
 
@@ -121,7 +121,8 @@ To confirm this,
    ```bash
    npm run query-three
    ```
-5. and then on fourth query's endpoint with,
+
+5. and then on the fourth query's endpoint with,
 
    ```bash
    npm run query-four
@@ -129,9 +130,9 @@ To confirm this,
 
 On registering the fourth query, the aggregator will give a console on the terminal, that the registered query is already running.
 
-6. Try re-registering the queries with any of commands above, and confirm that the queries are the same and registered already.
+6. Try re-registering the queries with any of the commands above, and confirm that the queries are the same and registered already.
 
-Let's consider if the basic graph patterns of the queries are isomorphic but the data stream sources are different. In this case, the aggregator will register both the queries. To demonstrate this, we take the queries with different sources,
+Let's consider if the basic graph patterns of the queries are isomorphic but the data stream sources are different. In this case, the aggregator will register both queries. To demonstrate this, we take the queries from different sources,
 
 ```ts
 let query_five = ` 
@@ -151,7 +152,7 @@ let query_five = `
 and,
 
 ```ts
-` 
+let query_six = `
         PREFIX saref: <https://saref.etsi.org/core/> 
         PREFIX dahccsensors: <https://dahcc.idlab.ugent.be/Homelab/SensorsAndActuators/>
         PREFIX : <https://rsp.js/>
@@ -162,7 +163,7 @@ and,
             WINDOW :w1 {
                         ?subject saref:relatesToProperty dahccsensors:wearable.Accelerometer .
                         ?subject saref:hasValue ?object . }
-        }
+        }`;
 ```
 
 To confirm this,
@@ -173,14 +174,13 @@ To confirm this,
    npm run query-five
    ```
 
-8. and then on sixth query's endpoint with,
+8. and then on the sixth query's endpoint with,
 
    ```bash
-        npm run query-six
+   npm run query-six
    ```
 
-As you can see, the aggregator will register both the queries. 
-
+As you can see, the aggregator will register both queries.
 
 ## License
 
