@@ -4,7 +4,7 @@ const program = require('commander');
 
 program
     .version('0.0.1')
-    .description('Query Equi')
+    .description('Query Equivalence Demo')
     .name('query-equivalence-demo')
 
 program

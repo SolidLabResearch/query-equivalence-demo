@@ -1,6 +1,6 @@
 # Query Equivalence Demo
 
-This repository is to demonstrate the equivalence relation between two RSPQL queries registered in the query registry of the [solid stream aggregator](https://github.com/argahsuknesib/solid-stream-aggregator) for the [SolidLabResearch Challenge 106](https://github.com/SolidLabResearch/Challenges/issues/106)
+This repository is to demonstrate the equivalence relation between two RSPQL queries registered in the query registry of the [solid stream aggregator](https://github.com/argahsuknesib/solid-stream-aggregator) for the [SolidLabResearch Challenge 106](https://github.com/SolidLabResearch/Challenges/issues/106). A package called [rspql-query-equivalence](https://github.com/argahsuknesib/rspql-query-equivalence) was developed to check the equivalence of the queries. The package is used in the aggregator and will be used in the demonstration.
 
 ### Prerequisites
 
@@ -63,12 +63,17 @@ let query_two = `
 
 These queries are on the same data stream source, but the basic graph patterns are not isomorphic. Therefore, the aggregator will register both queries.
 
-To confirm this,
+To confirm this, we will do curl requests to the endpoints of the queries.
 
-2. Do a request to first query's endpoint with,
+2. Do a curl request to first query's endpoint with,
 
    ```bash
    npm run query-one
+   ```
+
+   You will obtain a response.
+   ```bash
+   The query you have registered is not already executing.
    ```
 
 3. and then on the second query's endpoint with,
@@ -76,6 +81,11 @@ To confirm this,
    ```bash
    npm run query-two
    ```
+
+   You will obtain a response.
+    ```bash
+    The query you have registered is not already executing.
+    ```
 
 Now to demonstrate the equivalence of the queries, we take two queries that are isomorphic but have different variable names.
 
@@ -121,11 +131,20 @@ To confirm this,
    ```bash
    npm run query-three
    ```
+   You will obtain a response.
+   ```bash
+   The query you have registered is not already executing. 
+   ```
 
 5. and then on the fourth query's endpoint with,
 
    ```bash
    npm run query-four
+   ```
+
+   You will obtain a response.
+   ```bash
+   The query you have registered is already executing.
    ```
 
 On registering the fourth query, the aggregator will give a console on the terminal, that the registered query is already running.
@@ -174,10 +193,19 @@ To confirm this,
    npm run query-five
    ```
 
+   You will obtain a response.
+   ```bash
+   The query you have registered is not already executing.
+   ```
+
 8. and then on the sixth query's endpoint with,
 
    ```bash
    npm run query-six
+   ```
+   You will obtain a response.
+   ```bash
+   The query you have registered is not already executing.
    ```
 
 As you can see, the aggregator will register both queries.
