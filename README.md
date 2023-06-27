@@ -210,6 +210,15 @@ To confirm this,
 
 As you can see, the aggregator will register both queries.
 
+
+### Conclusion
+
+The aggregator is now able to do optimisation if the basic graph patterns of the queries are isomorphic and the data stream sources are the same. In future, the work will be extended to support query containment as well as sharing of intermediate RDF result sharing between data streams. 
+
+### Lessons Learned
+
+Isomorphism of the basic graph patterns is a neccessary but not a sufficient condition for query optimisation. In future, The queries needs to be described in a more declarative manner to be able to do reasoning to determine query containment relation.
+
 ## License
 
 This code is copyrighted by [Ghent University - imec](https://www.ugent.be/ea/idlab/en) and released under the [MIT Licence](./LICENCE)
