@@ -211,6 +211,10 @@ To confirm this,
 As you can see, the aggregator will register both queries.
 
 
+### Technical Assumptions Made
+
+Since we are only interested in demonstrating the functionality of the Query Registry of the Aggregator. We have removed the other components of the aggregator as well as the stream data sources (i.e the pods). In case you wish to run the aggregator with the pods and are interested in the aggregation results, please refer to the [aggregator with the service description demo](https://github.com/argahsuknesib/aggregator-description-demo).
+
 ### Conclusion
 
 The aggregator is now able to do optimisation if the basic graph patterns of the queries are isomorphic and the data stream sources are the same. In future, the work will be extended to support query containment as well as sharing of intermediate RDF result sharing between data streams. 
