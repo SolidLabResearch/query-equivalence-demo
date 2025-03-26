@@ -4,12 +4,12 @@ const program = require('commander');
 
 program
     .version('0.0.1')
-    .description('Query Equivalence Demo')
-    .name('query-equivalence-demo')
+    .description('Query Isomorphism Demo')
+    .name('query-isomorphism-demo')
 
 program
     .command('demo')
-    .description('Starting the Query Equivalence Demo')
+    .description('Starting the Query Isomorphism Demo')
     .option(
         '-p, --port <port>',
         'The port of the REST server',

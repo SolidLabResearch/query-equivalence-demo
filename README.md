@@ -1,13 +1,13 @@
-# Query Equivalence Demo
+# Query Isomorphism Demo
 
-This repository is to demonstrate the equivalence relation between two RSPQL queries registered in the query registry of the [solid stream aggregator](https://github.com/argahsuknesib/solid-stream-aggregator) for the [SolidLabResearch Challenge 106](https://github.com/SolidLabResearch/Challenges/issues/106). A package called [rspql-query-equivalence](https://github.com/argahsuknesib/rspql-query-equivalence) was developed to check the equivalence of the queries. The package is used in the aggregator and will be used in the demonstration.
+This repository is to demonstrate the isomorphism relation between two RSPQL queries registered in the query registry of the [solid stream aggregator](https://github.com/SolidLabResearch/solid-stream-aggregator) for the [SolidLabResearch Challenge 106](https://github.com/SolidLabResearch/Challenges/issues/106). A package called [rspql-query-isomorphism](https://github.com/SolidLabResearch/rspql-query-isomorphism) was developed to check the isomorphism relation between the queries. The package is used in the aggregator and will be used in the demonstration.
 
 ### Prerequisites
 
 **NOTE** : The community solid server works only with the LTS versions of NodeJS.
 
 - Clone the repository.
-  `https://github.com/argahsuknesib/query-equivalence-demo.git`
+  `https://github.com/argahsuknesib/query-isomorphism-demo.git`
 - Install the dependencies from the root of the repository.
   `npm install`
 
@@ -17,7 +17,7 @@ To spin up the Solid pods, run the following command from the root of the reposi
 
 `npm run start-solid-server`
 
-In this demonstration, we will not aggregate the data, but rather focus on the equivalence of a newly registered query with an existing registered query. In case you are interested in the demonstration of the aggregation of the data you can check out [Solid Stream Aggregator Demo](https://github.com/SolidLabResearch/ssa-demo).
+In this demonstration, we will not aggregate the data, but rather focus on the isomorphism of a newly registered query with an existing registered query. In case you are interested in the demonstration of the aggregation of the data you can check out [Solid Stream Aggregator Demo](https://github.com/SolidLabResearch/ssa-demo).
 
 The queries in the aggregator are registered in [RSPQL](https://www.igi-global.com/article/rsp-ql-semantics/129761) syntax.
 
@@ -87,7 +87,7 @@ To confirm this, we will do curl requests to the endpoints of the queries.
     The query you have registered is not already executing.
     ```
 
-Now to demonstrate the equivalence of the queries, we take two queries that are isomorphic but have different variable names.
+Now to demonstrate the isomorphism of the queries, we take two queries that are isomorphic but have different variable names.
 
 So for the queries,
 

@@ -1,7 +1,7 @@
 {
-    "name": "query-equivalence-demo",
+    "name": "query-isomorphism-demo",
     "version": "1.0.0",
-    "description": "Demonstrating the Query Equivalence feature for the Solid Stream Aggregator",
+    "description": "Demonstrating the Query Isomorphism feature for the Solid Stream Aggregator",
     "main": "dist/index.js",
     "scripts": {
         "build": "npx tsc",
@@ -26,11 +26,13 @@
         "@types/jest": "^29.2.4",
         "jest": "^29.3.1",
         "rsp-js": "^1.0.1",
-        "rspql-query-equivalence": "^1.0.4",
         "supertest": "^6.3.3",
         "ts-jest": "^29.0.3",
         "tslog": "^4.8.2",
         "typescript": "^4.9.4",
         "websocket": "^1.0.34"
+    },
+    "dependencies": {
+        "rspql-query-isomorphism": "^2.0.0"
     }
 }

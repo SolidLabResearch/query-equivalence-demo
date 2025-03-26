@@ -1,5 +1,5 @@
 import { Logger, ILogObj } from "tslog";
-import { is_equivalent } from "rspql-query-equivalence";
+import { is_isomorphic } from "rspql-query-isomorphism";
 
 export class QueryRegistry {
     registered_queries: Map<number, string>;
@@ -90,7 +90,7 @@ export class QueryRegistry {
         })
         if (queryArray.length > 1) {
             for (let counter = 0; counter < queryArray.length; counter++) {
-                if (is_equivalent(query, queryArray[counter])) {
+                if (is_isomorphic(query, queryArray[counter])) {
                     is_similar = true;
                 }
             }
